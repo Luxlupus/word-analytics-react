@@ -1,11 +1,9 @@
 import { useState } from "react";
 import Warning from "./Warning";
 
-export default function TextArea() {
-  const [text, setText] = useState("");
-  //deriving from state
+// eslint-disable-next-line react/prop-types
+export default function TextArea({ text, setText }) {
   const [warningText, setWarningText] = useState("");
-
   const handleChange = (e) => {
     let newText = e.target.value;
 
@@ -20,10 +18,10 @@ export default function TextArea() {
     }
     setText(newText);
   };
-
   return (
     <div className="textarea">
       <textarea
+        wrap="hard"
         value={text}
         placeholder="Enter your text"
         spellCheck="false"
